@@ -1,0 +1,18 @@
+<templateSet group="Spectator">
+  <template name="spec-comp" value="import { createComponentFactory } from '@ngneat/spectator';&#10;import { $Name$Component } from './$name$.component';&#10;&#10;describe('$Name$Component', () =&gt; {&#10;  const createComponent = createComponentFactory({&#10;    component: $Name$Component,&#10;    imports: [$imports$],&#10;    declarations: [$declarations$],&#10;    providers: [$providers$],&#10;  });&#10;&#10;  function init() {&#10;    const spectator = createComponent();&#10;&#10;    return { spectator };&#10;  }&#10;&#10;  it('should create', () =&gt; {&#10;    const { spectator } = init();&#10;    expect(spectator.component).toBeTruthy();&#10;  });&#10;  &#10;  $END$&#10;});" description="createComponentFactory" toReformat="true" toShortenFQNames="true">
+    <variable name="Name" expression="" defaultValue="Name" alwaysStopAt="true" />
+    <variable name="name" expression="lowercaseAndDash(Name)" defaultValue="" alwaysStopAt="true" />
+    <variable name="imports" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="declarations" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="providers" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TS_TOP_LEVEL_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="spec-it" value="it('should $text$', () =&gt; {&#10;    const { spectator } = init();&#10;    $END$&#10;});" description="spectatorItWithInit" toReformat="true" toShortenFQNames="true">
+    <variable name="text" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="TS_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
